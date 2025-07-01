@@ -1,18 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# ## common
-# 
-# New notebook
-
 # # Create a date table
-
-# In[1]:
-
-
 import datetime as dt
-#from datetime import timedelta
-#import numpy as np
 import pandas as pd
 
 df = pd.DataFrame()
@@ -59,12 +46,6 @@ df.drop(columns=["date_localized"], inplace=True)
 
 # write dataframe to lakehouse
 spark.createDataFrame(df).write.option("overwriteSchema", "true").mode("overwrite").saveAsTable("date_table")
-
-
-# # Create an empty measures table
-
-# In[2]:
-
 
 # create a lakehouse table for calculated measures
 d = {'empty': ["empty"]}
